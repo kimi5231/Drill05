@@ -18,7 +18,14 @@ def handle_events():
                 running = False
 
 running = True
+frameX, frameY = 0, 3
+x, y = WIDTH//2, HEIGHT//2
+
 while(running):
+    clear_canvas()
+    background.draw(WIDTH // 2, HEIGHT // 2)
+    character.clip_draw(frameX * 100, frameY * 100, 100, 100, x, y)
+    update_canvas()
     handle_events()
 
 close_canvas()
