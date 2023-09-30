@@ -21,10 +21,8 @@ def handle_events():
 
 def make_random_hand_arrow():
     global arrowX, arrowY
-    x = random.randint(5, 105)
-    y = random.randint(5, 55)
-    arrowX = x * 10
-    arrowY = y * 10
+    arrowX = random.randint(50, 1050)
+    arrowY = random.randint(50, 550)
 
 def follow_hand_arrow():
     global boyX, boyY
@@ -50,7 +48,7 @@ while(running):
     character.clip_draw(frameX * 100, frameY * 100, 100, 100, boyX, boyY)
     update_canvas()
     handle_events()
-    if i == 100:
+    if arrowX == boyX and arrowY == boyY:
         make_random_hand_arrow()
         i = 0
     else:
