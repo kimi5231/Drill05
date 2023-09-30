@@ -28,12 +28,15 @@ def make_random_hand_arrow():
 
 def follow_hand_arrow():
     global boyX, boyY
+    global frameY
     a = (arrowY - boyY)/(arrowX - boyX)
     b = boyY - a * boyX
     if arrowX > boyX:
         boyX += 10
+        frameY = 1
     elif arrowX < boyX:
         boyX -= 10
+        frameY = 0
     boyY = a * boyX + b
 
 running = True
