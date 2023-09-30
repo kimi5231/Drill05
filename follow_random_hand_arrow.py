@@ -37,7 +37,7 @@ def follow_hand_arrow():
     boyY = a * boyX + b
 
 running = True
-frameX, frameY = 0, 3
+frameX, frameY = 0, 0
 boyX, boyY = WIDTH//2, HEIGHT//2
 arrowX, arrowY = 50, 50
 
