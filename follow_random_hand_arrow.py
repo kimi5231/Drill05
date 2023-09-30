@@ -19,12 +19,13 @@ def handle_events():
 
 running = True
 frameX, frameY = 0, 3
-x, y = WIDTH//2, HEIGHT//2
+boyX, boyY = WIDTH//2, HEIGHT//2
+arrowX, arrowY = 0, 0
 
 while(running):
     clear_canvas()
     background.draw(WIDTH // 2, HEIGHT // 2)
-    character.clip_draw(frameX * 100, frameY * 100, 100, 100, x, y)
+    character.clip_draw(frameX * 100, frameY * 100, 100, 100, boyX, boyY)
     update_canvas()
     handle_events()
     frameX = (frameX + 1) % 8
