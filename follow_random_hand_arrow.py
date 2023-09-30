@@ -29,20 +29,19 @@ def make_random_hand_arrow():
 def follow_hand_arrow():
     global boyX, boyY
     global frameY
-    a = (arrowY - boyY)/(arrowX - boyX)
-    b = boyY - a * boyX
+    t = i/100
+    boyX = (1 - t) * boyX + t * arrowX
+    boyY = (1 - t) * boyY + t * arrowY
     if arrowX > boyX:
-        boyX += 10
         frameY = 1
     elif arrowX < boyX:
-        boyX -= 10
         frameY = 0
-    boyY = a * boyX + b
 
 running = True
 frameX, frameY = 0, 0
 boyX, boyY = WIDTH//2, HEIGHT//2
 arrowX, arrowY = 50, 50
+i = 0
 
 while(running):
     clear_canvas()
@@ -51,10 +50,12 @@ while(running):
     character.clip_draw(frameX * 100, frameY * 100, 100, 100, boyX, boyY)
     update_canvas()
     handle_events()
-    if arrowX == boyX and arrowY == boyY:
+    if i == 100:
         make_random_hand_arrow()
+        i = 0
     else:
         follow_hand_arrow()
+        i += 4
     frameX = (frameX + 1) % 8
     delay(0.05)
 
